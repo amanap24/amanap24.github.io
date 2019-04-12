@@ -28,17 +28,16 @@ void loop()
 }
 
 
- void SendMessage()
-{
-  mySerial.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
-  delay(1000);  // Delay of 1000 milli seconds or 1 second
-  mySerial.println("AT+CMGS=\"+919376488351\"\r"); // Replace x with mobile number
+void SendMessage(){
+  mySerial.write("AT+CMGF=1\r\n");
+  delay(1000); 
+  mySerial.write("AT+CMGS=\"+917984621327\"\r\n");
   delay(1000);
-  mySerial.println("I am SMS from GSM Module");// The SMS text you want to send
-  delay(100);
-   mySerial.println((char)26);// ASCII code of CTRL+Z
-  delay(1000);
-}
+  mySerial.write("Test");
+  delay(1000);   
+  mySerial.write((char)26);
+  delay(2000);
+  }
 
 
  void RecieveMessage()
